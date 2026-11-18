@@ -1,0 +1,4 @@
+-keep class com.exambuddy.** { *; }
+-keep class okhttp3.** { *; }
+-dontwarn okhttp3.**
+-keep class org.json.** { *; }

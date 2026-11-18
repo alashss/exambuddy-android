@@ -1,0 +1,170 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#0F0F1A"
+    android:fillViewport="true">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:padding="20dp">
+
+        <!-- Header -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:gravity="center_vertical"
+            android:layout_marginBottom="24dp">
+
+            <ImageView
+                android:id="@+id/iv_logo"
+                android:layout_width="48dp"
+                android:layout_height="48dp"
+                android:src="@drawable/ic_brain"
+                android:layout_marginEnd="12dp" />
+
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:orientation="vertical">
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="ExamBuddy"
+                    android:textSize="24sp"
+                    android:textStyle="bold"
+                    android:textColor="#A78BFA" />
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="AI Exam Assistant"
+                    android:textSize="13sp"
+                    android:textColor="#6B7280" />
+            </LinearLayout>
+        </LinearLayout>
+
+        <!-- Status banner -->
+        <TextView
+            android:id="@+id/tv_status"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="⚠️ Belum ada API key"
+            android:textColor="#F9FAFB"
+            android:background="#1F1F33"
+            android:padding="12dp"
+            android:layout_marginBottom="20dp"
+            android:textSize="14sp" />
+
+        <!-- === Gemini === -->
+        <TextView style="@style/SectionHeader" android:text="🔷 Gemini Flash (Free tier)" />
+        <EditText
+            android:id="@+id/et_gemini_key"
+            style="@style/KeyInput"
+            android:hint="AIzaSy... (dari aistudio.google.com)" />
+
+        <!-- === Groq === -->
+        <TextView style="@style/SectionHeader" android:text="⚡ Groq (Ultra fast, free)" />
+        <EditText
+            android:id="@+id/et_groq_key"
+            style="@style/KeyInput"
+            android:hint="gsk_... (dari console.groq.com)" />
+        <TextView style="@style/SubLabel" android:text="Model Groq:" />
+        <Spinner
+            android:id="@+id/sp_groq_model"
+            style="@style/StyledSpinner" />
+
+        <!-- === OpenRouter === -->
+        <TextView style="@style/SectionHeader" android:text="🔗 OpenRouter (Free models)" />
+        <EditText
+            android:id="@+id/et_openrouter_key"
+            style="@style/KeyInput"
+            android:hint="sk-or-... (dari openrouter.ai)" />
+        <TextView style="@style/SubLabel" android:text="Model OpenRouter:" />
+        <Spinner
+            android:id="@+id/sp_or_model"
+            style="@style/StyledSpinner" />
+
+        <!-- === Active Provider === -->
+        <TextView style="@style/SectionHeader" android:text="🎯 Provider Aktif" />
+        <Spinner
+            android:id="@+id/sp_active_provider"
+            style="@style/StyledSpinner" />
+
+        <!-- Save button -->
+        <Button
+            android:id="@+id/btn_save"
+            android:layout_width="match_parent"
+            android:layout_height="52dp"
+            android:text="💾 SIMPAN PENGATURAN"
+            android:backgroundTint="#6D28D9"
+            android:textColor="#FFFFFF"
+            android:textStyle="bold"
+            android:layout_marginTop="20dp"
+            android:layout_marginBottom="8dp" />
+
+        <!-- Auto start toggle -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:gravity="center_vertical"
+            android:layout_marginBottom="20dp">
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="Auto-start saat boot"
+                android:textColor="#D1D5DB"
+                android:textSize="14sp" />
+            <Switch
+                android:id="@+id/sw_auto_start"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" />
+        </LinearLayout>
+
+        <!-- Start/Stop -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:weightSum="2">
+
+            <Button
+                android:id="@+id/btn_start"
+                android:layout_width="0dp"
+                android:layout_height="52dp"
+                android:layout_weight="1"
+                android:layout_marginEnd="6dp"
+                android:text="▶ MULAI"
+                android:backgroundTint="#059669"
+                android:textColor="#FFFFFF"
+                android:textStyle="bold" />
+
+            <Button
+                android:id="@+id/btn_stop"
+                android:layout_width="0dp"
+                android:layout_height="52dp"
+                android:layout_weight="1"
+                android:layout_marginStart="6dp"
+                android:text="■ STOP"
+                android:backgroundTint="#DC2626"
+                android:textColor="#FFFFFF"
+                android:textStyle="bold" />
+        </LinearLayout>
+
+        <!-- Guide text -->
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="📌 Cara pakai:\n1. Masukkan API key (minimal 1)\n2. Simpan → Mulai\n3. Buka app ujian kamu\n4. Tap bubble untuk buka AI panel\n5. Gunakan ← → untuk navigasi soal"
+            android:textColor="#6B7280"
+            android:textSize="12sp"
+            android:layout_marginTop="20dp"
+            android:lineSpacingMultiplier="1.4" />
+
+    </LinearLayout>
+</ScrollView>

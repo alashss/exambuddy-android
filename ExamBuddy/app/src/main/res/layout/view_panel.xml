@@ -1,0 +1,170 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="@drawable/panel_bg">
+
+    <!-- Title bar -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="52dp"
+        android:orientation="horizontal"
+        android:gravity="center_vertical"
+        android:paddingStart="14dp"
+        android:paddingEnd="8dp"
+        android:background="@drawable/panel_header_bg">
+
+        <ImageView
+            android:layout_width="24dp"
+            android:layout_height="24dp"
+            android:src="@drawable/ic_brain"
+            android:layout_marginEnd="8dp" />
+
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/tv_provider_name"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="🤖 Groq Llama"
+                android:textColor="#A78BFA"
+                android:textSize="12sp"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/tv_question_num"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Soal 1 / 40"
+                android:textColor="#9CA3AF"
+                android:textSize="11sp"
+                android:visibility="gone" />
+        </LinearLayout>
+
+        <!-- Cycle provider button -->
+        <Button
+            android:id="@+id/btn_cycle_provider"
+            android:layout_width="36dp"
+            android:layout_height="36dp"
+            android:backgroundTint="#2D2D4E"
+            android:text="⇄"
+            android:textSize="14sp"
+            android:textColor="#A78BFA"
+            android:padding="0dp"
+            android:layout_marginEnd="4dp" />
+
+        <!-- Close button -->
+        <Button
+            android:id="@+id/btn_close"
+            android:layout_width="36dp"
+            android:layout_height="36dp"
+            android:backgroundTint="#3F1F1F"
+            android:text="✕"
+            android:textSize="14sp"
+            android:textColor="#F87171"
+            android:padding="0dp" />
+    </LinearLayout>
+
+    <!-- Progress bar -->
+    <ProgressBar
+        android:id="@+id/progress_bar"
+        style="?android:attr/progressBarStyleHorizontal"
+        android:layout_width="match_parent"
+        android:layout_height="3dp"
+        android:indeterminate="true"
+        android:progressTint="#A78BFA"
+        android:visibility="gone" />
+
+    <!-- Question text -->
+    <TextView
+        android:id="@+id/tv_question"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Belum ada soal"
+        android:textColor="#E5E7EB"
+        android:textSize="13sp"
+        android:padding="14dp"
+        android:maxLines="5"
+        android:ellipsize="end"
+        android:background="#16162A"
+        android:lineSpacingMultiplier="1.3" />
+
+    <!-- Divider -->
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="#2D2D4E" />
+
+    <!-- Answer scroll area -->
+    <ScrollView
+        android:id="@+id/sv_answer"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:padding="14dp"
+        android:fadeScrollbars="false">
+
+        <TextView
+            android:id="@+id/tv_answer"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text=""
+            android:hint="Tekan Tanya AI →"
+            android:textColorHint="#4B5563"
+            android:textColor="#D1FAE5"
+            android:textSize="13sp"
+            android:lineSpacingMultiplier="1.4" />
+    </ScrollView>
+
+    <!-- Bottom action bar -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="52dp"
+        android:orientation="horizontal"
+        android:gravity="center_vertical"
+        android:padding="6dp"
+        android:background="#1A1A2E">
+
+        <!-- Prev soal -->
+        <Button
+            android:id="@+id/btn_prev"
+            android:layout_width="0dp"
+            android:layout_height="40dp"
+            android:layout_weight="1"
+            android:text="◀ Prev"
+            android:textSize="12sp"
+            android:textColor="#D1D5DB"
+            android:backgroundTint="#2D2D4E"
+            android:layout_marginEnd="4dp" />
+
+        <!-- Ask AI -->
+        <Button
+            android:id="@+id/btn_ask"
+            android:layout_width="0dp"
+            android:layout_height="40dp"
+            android:layout_weight="1.5"
+            android:text="🤖 Tanya AI"
+            android:textSize="12sp"
+            android:textColor="#FFFFFF"
+            android:textStyle="bold"
+            android:backgroundTint="#6D28D9"
+            android:layout_marginEnd="4dp" />
+
+        <!-- Next soal -->
+        <Button
+            android:id="@+id/btn_next"
+            android:layout_width="0dp"
+            android:layout_height="40dp"
+            android:layout_weight="1"
+            android:text="Next ▶"
+            android:textSize="12sp"
+            android:textColor="#D1D5DB"
+            android:backgroundTint="#2D2D4E" />
+    </LinearLayout>
+
+</LinearLayout>
