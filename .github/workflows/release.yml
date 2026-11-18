@@ -1,0 +1,107 @@
+name: Build & Release APK
+
+on:
+  push:
+    branches: [ main ]
+    tags:
+      - 'v*'
+  workflow_dispatch:
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+
+    steps:
+      # 1. Checkout
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      # 2. Java 17
+      - name: Set up JDK 17
+        uses: actions/setup-java@v4
+        with:
+          java-version: '17'
+          distribution: 'temurin'
+
+      # 3. Cache Gradle
+      - name: Cache Gradle packages
+        uses: actions/cache@v4
+        with:
+          path: |
+            ~/.gradle/caches
+            ~/.gradle/wrapper
+          key: ${{ runner.os }}-gradle-${{ hashFiles('**/*.gradle*', '**/gradle-wrapper.properties') }}
+          restore-keys: ${{ runner.os }}-gradle
+
+      # 4. Make gradlew executable
+      - name: Make gradlew executable
+        run: chmod +x gradlew
+
+      # 5. Build debug APK (always)
+      - name: Build Debug APK
+        run: ./gradlew assembleDebug
+
+      # 6. Build release APK (unsigned — sign below if keys set)
+      - name: Build Release APK
+        run: ./gradlew assembleRelease
+        env:
+          KEYSTORE_PATH: ""
+          KEYSTORE_PASSWORD: ""
+          KEY_ALIAS: ""
+          KEY_PASSWORD: ""
+
+      # 7. Get version name from gradle
+      - name: Get version name
+        id: version
+        run: |
+          VERSION=$(./gradlew -q printVersionName 2>/dev/null || echo "1.0.0")
+          echo "version=$VERSION" >> $GITHUB_OUTPUT
+          echo "tag=v$VERSION-$(date +'%Y%m%d%H%M')" >> $GITHUB_OUTPUT
+
+      # 8. Rename APKs
+      - name: Rename APKs
+        run: |
+          mkdir -p artifacts
+          cp app/build/outputs/apk/debug/app-debug.apk \
+             artifacts/ExamBuddy-debug.apk
+          if [ -f app/build/outputs/apk/release/app-release-unsigned.apk ]; then
+            cp app/build/outputs/apk/release/app-release-unsigned.apk \
+               artifacts/ExamBuddy-release.apk
+          fi
+
+      # 9. Create GitHub Release with APK attached
+      - name: Create Release
+        uses: softprops/action-gh-release@v2
+        with:
+          tag_name: ${{ steps.version.outputs.tag }}
+          name: "ExamBuddy ${{ steps.version.outputs.tag }}"
+          body: |
+            ## 🤖 ExamBuddy — AI Exam Assistant
+
+            ### 📦 Download
+            - **ExamBuddy-debug.apk** — debug build, install langsung
+            - **ExamBuddy-release.apk** — release build (unsigned)
+
+            ### ✨ Fitur
+            - Floating bubble overlay di atas app ujian
+            - Multi AI provider: Gemini, Groq (Llama/Mixtral/Gemma), OpenRouter (Free)
+            - Auto-jawab soal dari app ujian
+            - Navigasi prev/next soal
+            - Dark theme, drag-able bubble
+
+            ### 🚀 Cara pakai
+            1. Install APK
+            2. Buka ExamBuddy → masukkan API key
+            3. Tap **Mulai** → izinkan overlay
+            4. Buka app ujian → tap bubble ungu
+
+            Built from commit: ${{ github.sha }}
+          files: |
+            artifacts/ExamBuddy-debug.apk
+            artifacts/ExamBuddy-release.apk
+          draft: false
+          prerelease: false
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}

@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">ExamBuddy</string>
+    <string name="asking">Memproses soal…</string>
+    <string name="no_question">Belum ada soal</string>
+    <string name="tap_to_ask">Tap bubble untuk membuka panel AI</string>
+</resources>

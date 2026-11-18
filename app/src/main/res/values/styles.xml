@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <style name="Theme.ExamBuddy" parent="Theme.MaterialComponents.DayNight.DarkActionBar">
+        <item name="colorPrimary">#7C3AED</item>
+        <item name="colorPrimaryDark">#5B21B6</item>
+        <item name="colorAccent">#A78BFA</item>
+        <item name="android:windowBackground">#0F0F1A</item>
+        <item name="android:textColorPrimary">#F9FAFB</item>
+        <item name="android:textColorSecondary">#9CA3AF</item>
+    </style>
+
+    <style name="SectionHeader">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:textColor">#A78BFA</item>
+        <item name="android:textSize">13sp</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:layout_marginTop">16dp</item>
+        <item name="android:layout_marginBottom">6dp</item>
+    </style>
+
+    <style name="SubLabel">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:textColor">#6B7280</item>
+        <item name="android:textSize">11sp</item>
+        <item name="android:layout_marginTop">8dp</item>
+        <item name="android:layout_marginBottom">4dp</item>
+    </style>
+
+    <style name="KeyInput">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:textColor">#F9FAFB</item>
+        <item name="android:textColorHint">#4B5563</item>
+        <item name="android:background">@drawable/input_bg</item>
+        <item name="android:padding">12dp</item>
+        <item name="android:inputType">textPassword</item>
+        <item name="android:layout_marginBottom">8dp</item>
+        <item name="android:textSize">13sp</item>
+    </style>
+
+    <style name="StyledSpinner">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">48dp</item>
+        <item name="android:background">@drawable/input_bg</item>
+        <item name="android:paddingStart">12dp</item>
+        <item name="android:layout_marginBottom">8dp</item>
+    </style>
+
+</resources>
