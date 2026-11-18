@@ -10,51 +10,39 @@
         android:fillColor="#20A78BFA"
         android:pathData="M24,4 A20,20 0 1,1 24,44 A20,20 0 1,1 24,4 Z" />
 
-    <!-- Brain shape simplified -->
+    <!-- Brain shape -->
     <path
         android:strokeColor="#A78BFA"
         android:strokeWidth="2"
         android:fillColor="#00000000"
-        android:pathData="
-            M18,16 C14,16 11,19 11,23 C11,25 12,27 14,28
-            C13,29 12,31 13,33 C14,35 17,36 20,35
-            C21,37 23,38 24,38 C25,38 27,37 28,35
-            C31,36 34,35 35,33 C36,31 35,29 34,28
-            C36,27 37,25 37,23 C37,19 34,16 30,16
-            C29,14 27,13 24,13 C21,13 19,14 18,16 Z" />
+        android:pathData="M18,16 C14,16 11,19 11,23 C11,25 12,27 14,28 C13,29 12,31 13,33 C14,35 17,36 20,35 C21,37 23,38 24,38 C25,38 27,37 28,35 C31,36 34,35 35,33 C36,31 35,29 34,28 C36,27 37,25 37,23 C37,19 34,16 30,16 C29,14 27,13 24,13 C21,13 19,14 18,16 Z" />
 
-    <!-- Left brain lobe line -->
-    <line
-        android:x1="17"
-        android:y1="22"
-        android:x2="17"
-        android:y2="30"
+    <!-- Left lobe line -->
+    <path
         android:strokeColor="#7C3AED"
-        android:strokeWidth="1.5" />
+        android:strokeWidth="1.5"
+        android:strokeLineCap="round"
+        android:pathData="M17,22 L17,30" />
 
-    <!-- Right brain lobe line -->
-    <line
-        android:x1="31"
-        android:y1="22"
-        android:x2="31"
-        android:y2="30"
+    <!-- Right lobe line -->
+    <path
         android:strokeColor="#7C3AED"
-        android:strokeWidth="1.5" />
+        android:strokeWidth="1.5"
+        android:strokeLineCap="round"
+        android:pathData="M31,22 L31,30" />
 
     <!-- Center divider -->
-    <line
-        android:x1="24"
-        android:y1="15"
-        android:x2="24"
-        android:y2="37"
+    <path
         android:strokeColor="#6D28D9"
-        android:strokeWidth="1" />
+        android:strokeWidth="1"
+        android:strokeLineCap="round"
+        android:pathData="M24,15 L24,37" />
 
     <!-- Neural dots -->
-    <circle android:fillColor="#A78BFA" android:cx="20" android:cy="20" android:r="1.5" />
-    <circle android:fillColor="#A78BFA" android:cx="28" android:cy="20" android:r="1.5" />
-    <circle android:fillColor="#A78BFA" android:cx="20" android:cy="28" android:r="1.5" />
-    <circle android:fillColor="#A78BFA" android:cx="28" android:cy="28" android:r="1.5" />
-    <circle android:fillColor="#C4B5FD" android:cx="24" android:cy="24" android:r="2" />
+    <path android:fillColor="#A78BFA" android:pathData="M21.5,20 A1.5,1.5 0 1,1 18.5,20 A1.5,1.5 0 1,1 21.5,20 Z" />
+    <path android:fillColor="#A78BFA" android:pathData="M29.5,20 A1.5,1.5 0 1,1 26.5,20 A1.5,1.5 0 1,1 29.5,20 Z" />
+    <path android:fillColor="#A78BFA" android:pathData="M21.5,28 A1.5,1.5 0 1,1 18.5,28 A1.5,1.5 0 1,1 21.5,28 Z" />
+    <path android:fillColor="#A78BFA" android:pathData="M29.5,28 A1.5,1.5 0 1,1 26.5,28 A1.5,1.5 0 1,1 29.5,28 Z" />
+    <path android:fillColor="#C4B5FD" android:pathData="M26,24 A2,2 0 1,1 22,24 A2,2 0 1,1 26,24 Z" />
 
 </vector>
